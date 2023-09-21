@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Collaborator Page</title>
+</head>
+<body>
+
+    <h1>Welcome User:::::::::::: {{request.user}}</h1>
+    <div>
+        {% if books %}
+        <h1>The user is collaborating on these Books</h1>
+        {% for book in books %}
+            <p><a href="{% url 'book' id=book.id %}">{{book}}</a></p>
+        {% endfor %}
+        {% else %}
+        <h1>Currently the user is not collaborating on any books</h1>
+        {% endif %}
+    </div>
+    <div>
+        <button> <a href="{% url 'logout' %}">Logout</a> </button>
+    </div>
+
+    
+</body>
+</html>

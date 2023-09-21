@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titlecontent %} Author | Page {% endblock %}
+
+{% block content %}
+<h1>Welcome User:::::::::::: {{request.user}}</h1>
+    <div>
+    {% if book %}
+        {% for b in book %}
+            <p><a href="{% url 'edit-book' id=b.id %}"> Title of the book:: {{b.title}}</a></p>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+{% endblock %}

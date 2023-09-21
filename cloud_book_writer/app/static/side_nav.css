@@ -1,0 +1,141 @@
+/* The side navigation menu */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #0c0707f0;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  /* Active/current link */
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  } 
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  /* div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100%; */
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+  body{
+    background-color: #e7d8d8f0;
+    overflow-x: hidden;
+  }
+
+
+  /* Main content top header */
+  .container-flex {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    justify-content: flex-start;  
+
+    color: rgba(26, 23, 23, 0.918);
+    font-size: 1 rem;
+  }
+
+  /* Button of Sign-up and Login */
+  .button{
+    background-color: #04AA6D;
+    color:white;
+  }
+  .button:hover{
+    color:white;
+    background-color:  #04AA6D;
+  } 
+
+/* Music Card */
+.music-card {
+  padding-bottom: 30px;  
+  color:#04AA6D; 
+}
+.card-body{
+  color:#04AA6D; 
+}
+.music-card:hover{
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(56, 51, 51),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+
+}
+.music-card img {
+  max-width: fit-content;
+}
+.music-card p{
+  font-size: 1 rem;
+  font-weight: bold;
+  padding-top: 10px;
+  color: rgba(26, 23, 23, 0.918);
+}
+.music-card a{
+  text-decoration: none;
+}
+
+.title{
+  color :#04AA6D
+}
+.title h1{
+  color :#04AA6D;
+  font-size: 1.5rem;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.content{
+  margin-left: 200px;
+  padding-left: 10px;
+  height: 100vh;
+}
+
+.edit-btn{
+  background-color: #04AA6D;
+  color:#f1f1f1;
+}
+.edit-btn:hover{
+  opacity: 75%;
+}
+
+.page-item.active .page-link{
+  color: #04AA6D;
+  border-color: #04AA6D;
+}
+.page-item .page-link{
+  color: #04AA6D;
+  border-color: #04AA6D;
+}

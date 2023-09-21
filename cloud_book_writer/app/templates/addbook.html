@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block titlecontent %} Create Book | Page {% endblock %}
+
+
+{% block content %}
+<div class="form-container">
+  <div class="form">
+      <form class="form form-control" action="" method="post" enctype="multipart/form-data">
+        <h2 class="text-center"> Create Book</h2>
+        <table class=" table border table-striped">
+        {% csrf_token %}
+         {{ form.as_table }}
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+        </table>
+       
+        <button class="btn button my-2" type="submit">Submit</button>
+      </form>
+</div>
+</div>
+
+{% endblock %}

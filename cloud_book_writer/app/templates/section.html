@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block titlecontent %} SignUp | Page {% endblock %}
+
+
+
+{% block content %}
+<div class="form-container">
+  <div class="form">
+      <form class="form form-control" action="" method="post" >
+        <h2 class="text-center">Create Section</h2>
+        <table class=" table border table-striped">
+        {% csrf_token %}
+         {{ form.as_table }}
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+        </table>
+       
+        <button class="btn button my-2" type="submit">Submit</button>
+        <a href="author" class="btn button">Go Back</a> 
+      </form>
+</div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    $("#id_book").change(function () {
+    console.log("working")
+    var bookId = $(this).val();
+    $.ajax({                      
+        url: "{% url 'ajax_load_sections' %}",
+        data: {
+        'book_id': bookId       
+        },
+        success: function (data) {  
+        console.log(data)
+            if (data.length == 0) {
+                $("#id_parent").parent().hide()
+            } else {
+                $("#id_parent").parent().show()
+                html_data = get_into_html(data)
+                $("#id_parent").empty()
+                $("#id_parent").append(html_data)   
+            }           
+        }
+    });
+
+    });
+    function get_into_html(data){
+        var html_data = ``
+        for (i=0; i<data.length; i++){
+            console.log(data[i])
+            html_data+=`<option value=${data[i].id}>${data[i].title}</option>`
+        }
+        return html_data
+    }
+</script>
+
+{% endblock %}
+
+
+   

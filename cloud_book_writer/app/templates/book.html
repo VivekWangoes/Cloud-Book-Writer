@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Page</title>
+</head>
+<body>
+    {% if books %}
+    <h1>This page displays Books</h1>
+    {% for book in books %}
+        <p>{{book}}</p>
+        {% for section in book.sections.all %}
+            <p><a href="{% url 'edit-section' id=section.id %}">{{section}}</a></p>
+        {% endfor %}
+    {% endfor %}
+    {% else %}
+    <h1>No book Found</h1>
+    {% endif %}
+</body>
+</html>
